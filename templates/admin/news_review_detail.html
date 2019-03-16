@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大创后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+    <script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+    <script src="../../static/admin/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="../../static/admin/js/news_review_detail.js"></script>
+</head>
+<body>
+    <div class="breadcrub">
+            当前位置：项目管理>项目审核
+        </div>
+        <div class="pannel">
+            <form action="/news_review_detail" method="post">
+                <div class="form_group">
+                    <label>编号：</label>
+                    <p type="text" class="input_txt2">{{ id }}</p>
+                </div>
+                <div class="form_group">
+                    <label>标题：</label>
+                    <p type="text" class="input_txt2">{{ title }}</p>
+                    </div>
+                <div class="form_group">
+                    <label>摘要：</label>
+                    <p type="text" class="input_txt2">{{ digest }}</p>
+                </div>
+                <div class="form_group">
+                    <label>内容：</label>
+                    <p type="input_area" class="input_area">{{ content }}</p>
+                </div>
+
+            <div class="form_group indent_group">
+                <input type="radio" name="action" checked="" value="accept"> 通过&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="action" value="reject"> 拒绝通过
+            </div>
+            <div class="form_group indent_group line_top">
+                <input type="hidden" name="id" value="{{ id }}"> 
+                <input type="hidden" name="username" value="{{ username }}"> 
+                <input type="submit" value="确定" class="confirm">
+                <input type="button" value="取消" class="cancel" onclick="cancel()">
+            </div>
+            </form>    
+        </div>
+</body>
+</html>

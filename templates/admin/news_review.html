@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大创后台管理</title>
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+	<link rel="stylesheet" href="../../static/admin/css/jquery.pagination.css">
+	<script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../../static/admin/js/jquery.pagination.min.js"></script>
+</head>
+<body>
+	<div class="breadcrub">
+			当前位置：项目管理>项目审核&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome {{username}}
+			<form class="news_filter_form">
+				<input type="text" name="keywords" placeholder="请输入关键字" class="input_txt">
+				<input type="submit" value="搜 索" class="input_sub">
+			</form>
+		</div>
+		<div class="pannel">
+			<table class="common_table">
+				<tr>
+					<th width="3%">id</th>
+					<th width="70%">标题</th>
+					
+					<th width="5%">状态</th>
+					<th width="8%">管理操作</th>
+				</tr>
+                {% for i in range(count) %}
+                    <tr>
+                        <td>{{ id[i] }}</td>
+                        <td class="tleft">{{ title[i] }}</td>
+                       
+                        <td>{% if status[i] == 1 %}
+                            <font color="green">已通过</font>
+                            {% elif status[i] == 0 %}
+                            <font color="red">未通过</font>
+                            {% else %}
+                            未审核
+                        {% endif %}</td>
+                        <td>
+							<form  action="/check_tec" method="post">
+								<input type="hidden"  name="username" value="{{ username }}"> 
+								<input type="hidden"  name="id" value="{{ id[i] }}"> 
+								<input type="hidden"  name="title" value="{{ title[i] }}"> 
+								<input type="hidden"  name="digest" value="{{ digest[i] }}">
+								<input type="hidden"  name="content" value="{{ content[i] }}">  
+								<input type="submit" value="审核" class="cancel">
+							</form>
+                        </td>
+                    </tr>
+                {% endfor %}
+			</table>
+		</div>
+
+		<div class="box">
+			<div id="pagination" class="page"></div>
+		</div>
+
+<!--      <script>
+			$(function() {
+				$("#pagination").pagination({
+                    currentPage: data.current_page ,
+                    totalPage:  data.total_page ,
+                    callback: function(current) {
+                        window.location = '/admin/news_review?p=' + current
+                    }
+				});
+			});
+		</script>
+	-->
+	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>秘密修改</title>
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+	<script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../../static/admin/js/jquery.form.min.js"></script>
+	<script src="../../static/admin/js/tinymce.min.js"></script>
+	<script src="../../static/admin/js/tinymce_setup.js"></script>
+	<!--<script src="../../static/admin/js/news_edit_detail.js"></script>-->
+</head>
+<body>
+	<div class="breadcrub">
+			密码修改			
+		</div>
+		<div class="pannel">
+			<form action="/pwd_edit_stu" method="post" class="news_edit">
+			<h3 class="review_title">EDIT</h3>
+			<div class="form_group">
+                <label>用户名：</label>
+                <input name="id" type="text"  class="input_txt2" >
+			</div>
+			<div class="form_group">
+                <label>旧密码：</label>
+                <input name="old" type="password"  class="input_txt2" >
+			</div>
+			<div class="form_group">
+                <label>输入新密码：</label>
+                <input name="new" type="password"   class="input_txt2" >
+			</div>
+			<div class="form_group">
+                <label>确认新密码：</label>
+                <input name="new_confirm" type="password"  class="input_txt2" >
+            </div>
+			{% if message %}
+			<p style="color:red">{{ message }}</p>
+			{% endif %}
+           
+            
+			<div class="form_group indent_group line_top">
+				<input type="submit" value="确定" class="confirm">
+				<input type="button" value="取消" class="cancel" onclick="history.go(-1)">
+			</div>
+            <input type="hidden" name="news_id">
+			</form>	
+		</div>
+
+</body>
+</html>

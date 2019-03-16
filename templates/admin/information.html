@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大创后台管理</title>
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+	<script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../../static/admin/js/jquery.form.min.js"></script>
+	<script src="../../static/admin/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="../../static/admin/js/tinymce_setup.js"></script>
+	<!--<script src="../../static/admin/js/news_edit_detail.js"></script>-->
+</head>
+<body>
+	<div class="breadcrub">
+			当前位置：项目管理>项目编辑			
+		</div>
+		<div class="pannel">
+			<form action="/news_edit_detail" method="post" class="news_edit">
+			<h3 class="review_title">项目编辑</h3>
+			<div class="form_group">
+                <label>编号：</label>
+                <p type="text" class="input_txt2">{{ id }}</p>
+            </div>
+            <div class="form_group">
+                <label>标题：</label>
+				<p type="text" class="input_txt2">{{ title }}</p>
+            </div>
+            <div class="form_group">
+                <label>摘要：</label>
+                <p type="text" class="input_txt2">{{ digest }}</p>
+            </div>
+           
+            <div class="form_group">
+                <label>内容：</label>
+				<p type="text" class="input_area">{{ content }}</p>
+            </div>
+			<div class="form_group indent_group line_top">
+				<input type="button" value="取消" class="cancel" onclick="history.go(-1)">
+			</div>
+            <input type="hidden" name="news_id">
+			</form>	
+		</div>
+
+</body>
+</html>
